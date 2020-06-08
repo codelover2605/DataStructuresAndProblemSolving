@@ -4,6 +4,11 @@ import kotlin.math.*
 
 object RadixSort {
 
+    /**
+     * Figure out how many digits the largest number in the array has, loop from o until largestNumber digits
+     * For each iteration of the loop, Create buckets for each digit (0-9), place each number in the array into the corresponding buckets
+     * Replace the array with he values in the bucket
+     */
     fun sort(array: IntArray): IntArray {
         var inputArray = array
         val maxDigits = digitCount(maxDigits(array))
