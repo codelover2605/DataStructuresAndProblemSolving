@@ -8,13 +8,13 @@ class DivideAndConquerPattern {
     @Test
     fun binarySearch() {
         val inputArray = intArrayOf(2, 5, 6, 9, 13, 15, 28, 30)
-        val searchElement = 13
+        val searchElement = 28
 
         var start = 0
         var end = inputArray.size - 1
         var middle = floor((start + end).toDouble() / 2).toInt()
 
-        while (searchElement != middle && start <= end) {
+        while (searchElement != inputArray[middle] && start <= end) {
             if(searchElement < inputArray[middle]) end = middle - 1
             else start = middle + 1
             middle = floor((start + end).toDouble() / 2).toInt()

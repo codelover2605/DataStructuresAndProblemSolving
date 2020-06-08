@@ -50,11 +50,11 @@ class MultiplePointersPattern {
             var right = 1
 
             while (right < inputArray.size) {
-                if (inputArray[left] == inputArray[right]) {
-                    right++
-                } else {
+                if(inputArray[left] != inputArray[right]) {
                     left++
                     inputArray[left] = inputArray[right]
+                } else{
+                    right++
                 }
             }
 
@@ -69,10 +69,10 @@ class MultiplePointersPattern {
         var left = 0
         var right = 1
 
-        while(right < inputArray.size && left < inputArray.size) {
-            if(inputArray[right] % 2 != 0) {
+        while (right < inputArray.size && left < inputArray.size) {
+            if (inputArray[right] % 2 != 0) {
                 right++
-            } else{
+            } else {
                 left++
                 val temp = inputArray[left]
                 inputArray[left] = inputArray[right]
@@ -82,5 +82,95 @@ class MultiplePointersPattern {
 
         println(inputArray.joinToString(","))
     }
+
+    @Test
+    fun `Are there Duplicates?`() {
+        listOf(
+            Pair(intArrayOf(1, 2, 3, 4, 4, 5), true),
+            Pair(intArrayOf(1, 2, 3, 4, 5, 6), false),
+            Pair(intArrayOf(1, 222, 333, 34, 44, 99999, 2), false)
+        ).forEach { inputPair ->
+            val input = inputPair.first
+            val expectedResult = inputPair.second
+            var result = false
+
+            var left = 0
+            var right = 1
+            while (left < input.size && right < input.size) {
+                if (input[left] != input[right]) {
+                    left++
+                    right++
+                } else {
+                    result = true
+                    break
+                }
+            }
+
+            assert(result == expectedResult)
+            { "Expected Duplicates found to be $expectedResult but was: $result for ${input.joinToString(",")}" }
+        }
+    }
+
+    @Test
+    fun `Given sorted array and target Average, find if a pair in array matches target`() {
+        listOf<Pair<IntArray, Number>>(
+            Pair(intArrayOf(1, 3, 3, 5, 6, 7, 10, 12, 19), 8),
+            Pair(intArrayOf(-1, 0, 3, 4, 5, 6), 4.1)
+        ).forEach { inputPair ->
+            val input = inputPair.first
+            val expectedAverage = inputPair.second.toDouble()
+
+            var start = 0
+            var end = input.size - 1
+            var pairFound = false
+
+            while (start < end) {
+                val average = (input[start] + input[end]).toDouble() / 2
+                if (average == expectedAverage) {
+                    pairFound = true
+                    break
+                }
+
+                if (average < expectedAverage) start++
+                else end--
+            }
+
+            val result = if (pairFound) "found (${input[start]}, ${input[end]})" else "not found"
+
+            println("Pair $result for ${input.joinToString(",")} matching average $expectedAverage")
+        }
+    }
+
+    @Test
+    fun `Is Sub-Sequence ?`() {
+        listOf(
+            Pair("hello", "Hello world"),
+            Pair("axy", "adxcpy"),
+            Pair("abc", "acb")
+        ).forEach { inputPair ->
+            val string1 = inputPair.first.toLowerCase()
+            val string2 = inputPair.second.toLowerCase().replace(" ", "")
+
+            var subSequence = false
+
+            var string1Pointer = 0
+            var string2Pointer = 0
+
+            while (string1Pointer < string1.length && string2Pointer < string2.length) {
+                if (string1[string1Pointer] == string2[string2Pointer]) {
+                    string1Pointer++
+                }
+                if (string1Pointer == string1.length) {
+                    subSequence = true
+                    break
+                } else {
+                    string2Pointer++
+                }
+            }
+
+            println("$string1 is sub-sequence of $string2: $subSequence")
+        }
+    }
+
 
 }
