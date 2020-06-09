@@ -11,7 +11,7 @@ An Algorithm is O(f(n)), if the number of operations that computer has to do is 
 
 Constants don't matter
 - O(2n), O(n+10), O(1000n+50) -> O(n)
-- O(500, O(3), O(50) -> O(1)
+- O(500), O(3), O(50) -> O(1)
 - O(13n^2). O(n^2 + 5n + 3) -> O(n^2)
 
 ### Big O Shorthands
