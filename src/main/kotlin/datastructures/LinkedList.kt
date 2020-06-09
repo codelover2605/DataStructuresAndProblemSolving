@@ -1,8 +1,7 @@
 package datastructures
 
-data class Node(var value: Any, var next: Node? = null)
-
 class LinkedList {
+    private data class Node(var value: Any, var next: Node? = null)
 
     private var head: Node?
     private var tail: Node?

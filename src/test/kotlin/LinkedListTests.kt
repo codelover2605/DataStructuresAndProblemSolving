@@ -1,7 +1,7 @@
 import datastructures.LinkedList
 import org.junit.jupiter.api.Test
 
-class DataStructures {
+class LinkedListTests {
 
     @Test
     fun `validate Push And Pop`() {
