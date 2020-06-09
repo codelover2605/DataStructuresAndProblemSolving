@@ -27,3 +27,8 @@ Space Complexity is a way to formalize how much additional memory do we need to 
 - Primitives (Boolean, Int, null etc) are constant space
 - Reference types requires O(n) space
 
+#### Udemy Course
+
+Thanks to Colt Steele for this Udemy Course: 
+https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/ 
+
