@@ -30,6 +30,16 @@ class Queue {
         return temp?.value ?: throw error("Value is null")
     }
 
+    fun shift(): Any? {
+        if(length == 0) return null
+
+        if(length == 1) return dequeue()
+
+        val temp = first
+        first = first?.next
+        return temp
+    }
+
     fun peek(): Any {
         if(length == 0) throw error("No items in the queue")
 
