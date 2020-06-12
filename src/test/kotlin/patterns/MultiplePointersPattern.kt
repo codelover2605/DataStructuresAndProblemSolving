@@ -49,10 +49,10 @@ class MultiplePointersPattern {
             var right = 1
 
             while (right < inputArray.size) {
-                if(inputArray[left] != inputArray[right]) {
+                if (inputArray[left] != inputArray[right]) {
                     left++
                     inputArray[left] = inputArray[right]
-                } else{
+                } else {
                     right++
                 }
             }
@@ -171,5 +171,24 @@ class MultiplePointersPattern {
         }
     }
 
+    @Test
+    fun `ReArrange Array with 1's at the beginning and 0's at the end`() {
+        val inputArray = intArrayOf(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0)
 
+        var left = 0
+        var right = 0
+
+        while(right < inputArray.size && left < inputArray.size) {
+            if(inputArray[left] != 1) {
+                val temp = inputArray[left]
+                inputArray[left] = inputArray[right]
+                inputArray[right] = temp
+                right++
+            } else{
+                left++
+            }
+        }
+
+        println(inputArray.joinToString(","))
+    }
 }
