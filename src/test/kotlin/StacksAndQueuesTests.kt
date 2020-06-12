@@ -1,6 +1,5 @@
-package patterns
-
 import datastructures.Queue
+import datastructures.QueueUsingStack
 import datastructures.Stack
 import org.junit.jupiter.api.Test
 
@@ -28,6 +27,25 @@ class StacksAndQueuesTests {
     @Test
     fun `validate queue`() {
         val queue = Queue()
+        queue.enqueue(1)
+        queue.enqueue(2)
+        queue.enqueue(3)
+        queue.enqueue(4)
+        queue.enqueue(5)
+
+        assert(queue.size() == 5)
+        assert(queue.peek() == 1)
+        assert(queue.dequeue() == 1)
+        assert(queue.dequeue() == 2)
+        assert(queue.dequeue() == 3)
+        assert(queue.peek() == 4)
+        assert(queue.dequeue() == 4)
+        assert(queue.size() == 1)
+    }
+
+    @Test
+    fun `validate queue implemented with stacks`() {
+        val queue = QueueUsingStack()
         queue.enqueue(1)
         queue.enqueue(2)
         queue.enqueue(3)

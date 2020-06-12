@@ -29,7 +29,7 @@ class Sorting {
     fun `Validate Insertion Sort`() {
         var array = intArrayOf()
         (1..100).forEach { _ ->
-            array = array.plus((1 until 10000000).random())
+            array = array.plus((1 until 1000).random())
         }
         val sortedArray = InsertionSort.sort(array)
         array.sort()
@@ -40,7 +40,7 @@ class Sorting {
     fun `Validate Merge Sort`() {
         var array = intArrayOf()
         (1..100).forEach { _ ->
-            array = array.plus((1 until 10000000).random())
+            array = array.plus((1 until 1000).random())
         }
 
         val sortedArray = MergeSort.sort(array)
@@ -53,7 +53,7 @@ class Sorting {
     fun `Validate Quick Sort`() {
         var array = intArrayOf()
         (1..100).forEach { _ ->
-            array = array.plus((1 until 10000000).random())
+            array = array.plus((1 until 1000).random())
         }
 
         val sortedArray = QuickSort.sort(array)
@@ -66,7 +66,7 @@ class Sorting {
     fun `Validate Radix Sort`() {
         var array = intArrayOf()
         (1..100).forEach { _ ->
-            array = array.plus((1 until 10000000).random())
+            array = array.plus((1 until 1000).random())
         }
 
         val sortedArray = RadixSort.sort(array)

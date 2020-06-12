@@ -12,7 +12,7 @@ class MultiplePointersPattern {
      * Repeat until sum is 0 or left and right don't overlap
      */
     @Test
-    fun `Find the first Pair Where the sum is 0`() {
+    fun `Find the first Pair in a sorted array where the sum is 0`() {
         val inputArray = arrayOf(-4, -3, -2, -1, 0, 1, 2, 8, 10)
 
         var left = 0
@@ -31,7 +31,6 @@ class MultiplePointersPattern {
         }
 
         assert(pair == Pair(-2, 2)) { "Expected Pair: (-2, 2) But was: $pair" }
-
     }
 
     /**
@@ -41,7 +40,7 @@ class MultiplePointersPattern {
      * Ex: 1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13 will become 1,2,3,4,7,12,13,7,12,12,13
      */
     @Test
-    fun `Find the unique numbers in an array`() {
+    fun `Find the unique numbers in a sorted array`() {
         listOf(
             intArrayOf(1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13),
             intArrayOf(-2, -2, -1, -1, 0, 1)
@@ -112,7 +111,7 @@ class MultiplePointersPattern {
     }
 
     @Test
-    fun `Given sorted array and target Average, find if a pair in array matches target`() {
+    fun `Given sorted array and target Average, find if a pair in array matches target average`() {
         listOf<Pair<IntArray, Number>>(
             Pair(intArrayOf(1, 3, 3, 5, 6, 7, 10, 12, 19), 8),
             Pair(intArrayOf(-1, 0, 3, 4, 5, 6), 4.1)
