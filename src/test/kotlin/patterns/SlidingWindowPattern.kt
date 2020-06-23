@@ -1,6 +1,5 @@
 package patterns
 
-import jdk.nashorn.internal.objects.Global.Infinity
 import org.junit.jupiter.api.Test
 import kotlin.math.max
 import kotlin.math.min
@@ -47,7 +46,7 @@ class SlidingWindowPattern {
             var start = 0
             var end = 0
             var totalSum = 0
-            var minLength = Infinity.toInt()
+            var minLength = Int.MAX_VALUE
 
             while (start < array.size) {
                 if (totalSum < sum && end < array.size) {
